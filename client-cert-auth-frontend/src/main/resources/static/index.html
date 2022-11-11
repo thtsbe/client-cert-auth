@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+Welcome!
+<div id="response"></div>
+</body>
+<script type="text/javascript">
+    var apiUrl = 'http://localhost:12000/api/demo';
+    document.getElementById('response').innerHTML = 'Loading...';
+    fetch(apiUrl).then(response => {
+        console.log(response)
+        return response.text();
+    }).then(data => {
+        console.log(data)
+        document.getElementById('response').innerHTML = data;
+    }).catch(err => {
+        console.error(err)
+        document.getElementById('response').innerHTML = err;
+    });
+</script>
+</html>
